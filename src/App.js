@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Articles from './components/Article/container/Articles';
+import AddArticle from './components/Article/container/AddArticle';
+import ArticleProvider from './context/articleContext'
 
 function App() {
+
+  const reversWord = (value) => {
+    return value.split(" ").reverse().join(" ");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      {/* {reversWord("I like to read")} */}
+      <ArticleProvider >
+        <AddArticle />
+        <Articles />
+      </ArticleProvider>
     </div>
   );
 }
